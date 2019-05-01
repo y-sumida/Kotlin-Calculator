@@ -1,5 +1,6 @@
 package com.example.kotlin_calculator
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -28,6 +29,11 @@ class MainActivity : AppCompatActivity() {
             if (isValid) {
                 val price = Integer.parseInt(priceText)
                 val discount = Integer.parseInt(discountText)
+
+                val intent = Intent(this, ResultActivity::class.java)
+                intent.putExtra("price", price)
+                intent.putExtra("discount", discount)
+                startActivity(intent)
             }
         }
     }
